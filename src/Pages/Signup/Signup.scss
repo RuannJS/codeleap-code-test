@@ -1,0 +1,43 @@
+@mixin absoluteCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signup-main {
+  @include absoluteCenter;
+  background-color: white;
+  padding: 3rem;
+  border-radius: 16px;
+}
+
+.signup-text-input {
+  border-radius: 8px;
+  border-color: #777777;
+}
+
+.signup-form-button {
+  color: white;
+  background: #7695ec;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.signup-form-disabled-button {
+  color: white;
+  background: #777777;
+  border: none;
+  border-radius: 8px;
+  padding: 0.5rem 2rem;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
