@@ -15,7 +15,7 @@ const NavigationBar = () => {
         <Container>
           <Navbar.Brand>CodeLeap Network</Navbar.Brand>
           <Nav className="me-end">
-            <Nav.Link onClick={() => setModalShow(true)} Logout>
+            <Nav.Link onClick={() => setModalShow(true)}>
               <span className="logout-link">Logout</span>
             </Nav.Link>
           </Nav>
