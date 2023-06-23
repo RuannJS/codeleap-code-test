@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const getURL = "https://dev.codeleap.co.uk/careers/";
+const URL = "https://dev.codeleap.co.uk/careers/";
 
 const initialState = {
   list: [],
@@ -10,7 +10,7 @@ const initialState = {
 
 export const getList = createAsyncThunk("getList", async (thunkAPI) => {
   try {
-    const resp = await axios(getURL);
+    const resp = await axios(URL);
     return resp.data;
   } catch (error) {
     return thunkAPI.rejectWithValue("There was an error!");

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const { username } = useSelector((state) => state.signup);
+  const { loginUsername } = useSelector((state) => state.signup);
 
   const handleUserChange = (event) => {
     const username = event.target.value;
@@ -43,7 +43,7 @@ const Signup = () => {
         {/* BUTTON CONTAINER */}
 
         <div className="text-end">
-          {username.length < 1 ? (
+          {loginUsername.length < 1 ? (
             <button
               type="button"
               className="signup-form-disabled-button mt-2"

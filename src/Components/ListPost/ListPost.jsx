@@ -7,11 +7,12 @@ import ListItem from "../ListItem/ListItem";
 const ListPost = () => {
   const dispatch = useDispatch();
 
+  const { counter } = useSelector((state) => state.newpost);
   const { list, isLoading } = useSelector((state) => state.getlist);
 
   useEffect(() => {
     dispatch(getList());
-  }, [list.count]);
+  }, [counter]);
 
   const results = list.results;
 

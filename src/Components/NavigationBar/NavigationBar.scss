@@ -12,13 +12,29 @@
 }
 
 .logout-btn {
-  background-color: transparent;
-  color: black;
-  border-color: red;
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
 
   &:hover {
+    text-decoration: underline;
     background-color: red;
     color: white;
-    border-color: red;
+    border: none;
+  }
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: black;
+  border-color: black;
+  padding: 0.5rem 2rem;
+
+  &:hover {
+    text-decoration: underline;
+    background-color: transparent;
+    color: black;
+    border-color: black;
   }
 }
