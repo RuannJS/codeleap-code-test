@@ -5,6 +5,8 @@ import moment from "moment/moment";
 import DeleteModal from "./DeleteModal";
 import EditModal from "./EditModal";
 import { useSelector } from "react-redux";
+import deleteIcon from "../../assets/delete-icon.svg";
+import editIcon from "../../assets/edit-icon.svg";
 
 const ListItem = (item) => {
   const [deleteModal, setDeleteModal] = useState(false);
@@ -32,13 +34,13 @@ const ListItem = (item) => {
               <img
                 onClick={() => handleDelete()}
                 className="icon"
-                src="src/assets/delete-icon.svg"
+                src={deleteIcon}
                 alt="delete"
               />
               <img
                 onClick={() => handleEdit()}
                 className="icon"
-                src="src/assets/edit-icon.svg"
+                src={editIcon}
                 alt="edit"
               />
             </div>
