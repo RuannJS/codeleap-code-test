@@ -30,13 +30,13 @@ const LogoutModal = (props) => {
         <h4>Are you sure you want to Logout ?</h4>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="cancel-btn" onClick={props.onHide}>
+        <button className="cancel-btn" onClick={props.onHide}>
           Cancel
-        </Button>
+        </button>
         <Link to={"/"}>
-          <Button className="logout-btn" onClick={() => handleLogout()}>
+          <button className="logout-btn" onClick={() => handleLogout()}>
             Logout
-          </Button>
+          </button>
         </Link>
       </Modal.Footer>
     </Modal>

@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../redux/features-actions/deletePostThunk";
@@ -12,7 +11,7 @@ const DeleteModal = (props) => {
   const deleteItem = () => {
     const itemId = id;
     dispatch(deletePost(itemId));
-    dispatch(decreaseCounter);
+    setTimeout(() => dispatch(decreaseCounter()), 500);
     onHide();
   };
 
@@ -32,12 +31,12 @@ const DeleteModal = (props) => {
         <h4>Are you sure you want to delete this item?</h4>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="cancel-btn" onClick={onHide}>
+        <button className="cancel-btn" onClick={onHide}>
           Cancel
-        </Button>
-        <Button onClick={() => deleteItem()} className="delete-btn">
+        </button>
+        <button onClick={() => deleteItem()} className="delete-btn">
           Delete
-        </Button>
+        </button>
       </Modal.Footer>
     </Modal>
   );

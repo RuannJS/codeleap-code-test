@@ -1,9 +1,44 @@
 import React from "react";
-import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
 import Modal from "react-bootstrap/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  titleChange,
+  contentChange,
+  decreaseCounter,
+  clearInput,
+} from "../../redux/features-actions/newPostFormSlice";
+import { editPost } from "../../redux/features-actions/editPostThunk";
 
 const EditModal = (props) => {
+  const dispatch = useDispatch();
+
+  const { title, content } = useSelector((state) => state.newpost);
+
   const { id, onHide } = props;
+
+  const handleTitle = (event) => {
+    const title = event.target.value;
+    dispatch(titleChange(title));
+  };
+
+  const handleContent = (event) => {
+    const content = event.target.value;
+    dispatch(contentChange(content));
+  };
+
+  const handleEditPost = () => {
+    const data = {
+      id: id,
+      title: title,
+      content: content,
+    };
+    dispatch(editPost(data));
+    dispatch(clearInput());
+    onHide();
+    setTimeout(() => dispatch(decreaseCounter()), 500);
+  };
+
   return (
     <Modal
       {...props}
@@ -12,18 +47,50 @@ const EditModal = (props) => {
       centered
     >
       <Modal.Header closeButton>
-        <Modal.Title id="contained-modal-title-vcenter">
-          CodeLeap Network
-        </Modal.Title>
+        <Modal.Title id="contained-modal-title-vcenter">Edit item</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Are you sure you want to edit this item?</h4>
+        <Form>
+          <Form.Group>
+            <Form.Label className="fs-5" htmlFor="form-title">
+              Title
+            </Form.Label>
+            <Form.Control
+              onChange={handleTitle}
+              type="text"
+              placeholder="Hello world"
+            />
+          </Form.Group>
+          <Form.Group className="mt-3">
+            <Form.Label className="fs-5" htmlFor="form-content">
+              Content
+            </Form.Label>
+            <Form.Control
+              onChange={handleContent}
+              as="textarea"
+              placeholder="Content here"
+              style={{ height: "75px" }}
+            />
+          </Form.Group>
+        </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button className="cancel-btn" onClick={onHide}>
+        <button className="cancel-btn" onClick={onHide}>
           Cancel
-        </Button>
-        <Button className="delete-btn">Delete</Button>
+        </button>
+        {title.length < 1 || content.length < 1 ? (
+          <button type="button" disabled className="save-disabled-btn">
+            Save
+          </button>
+        ) : (
+          <button
+            onClick={() => handleEditPost()}
+            type="button"
+            className="save-btn"
+          >
+            Save
+          </button>
+        )}
       </Modal.Footer>
     </Modal>
   );

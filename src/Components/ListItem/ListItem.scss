@@ -24,4 +24,50 @@
 
 .icon {
   max-width: 50px;
+  cursor: pointer;
+}
+
+.delete-btn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.cancel-btn {
+  background-color: transparent;
+  color: black;
+  border-color: black;
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  border-width: 0.1rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.save-btn {
+  background-color: green;
+  color: white;
+  border: none;
+  padding: 0.5rem 2.5rem;
+  border-radius: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.save-disabled-btn {
+  background-color: #777777;
+  color: white;
+  border: none;
+  padding: 0.5rem 2.5rem;
+  border-radius: 8px;
 }

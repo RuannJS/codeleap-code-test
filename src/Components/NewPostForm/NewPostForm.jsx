@@ -13,6 +13,7 @@ import {
 const NewPostForm = () => {
   const contentRef = useRef(null);
   const titleRef = useRef(null);
+
   const { title, content } = useSelector((store) => store.newpost);
   const { loginUsername } = useSelector((store) => store.signup);
 
@@ -38,7 +39,7 @@ const NewPostForm = () => {
     contentRef.current.value = "";
     titleRef.current.value = "";
     dispatch(clearInput());
-    dispatch(increaseCounter());
+    setTimeout(() => dispatch(increaseCounter()), 500);
   };
 
   return (
