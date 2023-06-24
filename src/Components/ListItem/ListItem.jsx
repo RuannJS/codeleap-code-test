@@ -32,13 +32,13 @@ const ListItem = (item) => {
               <img
                 onClick={() => handleDelete()}
                 className="icon"
-                src="src\assets\delete-icon.svg"
+                src="src/assets/delete-icon.svg"
                 alt="delete"
               />
               <img
                 onClick={() => handleEdit()}
                 className="icon"
-                src="src\assets\edit-icon.svg"
+                src="src/assets/edit-icon.svg"
                 alt="edit"
               />
             </div>
